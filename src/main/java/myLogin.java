@@ -60,7 +60,7 @@ public class myLogin {
         this.sessionId = "";
         SSLContext sc = null;
         try {
-            TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager(){
+            TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
 
                 @Override
                 public X509Certificate[] getAcceptedIssuers() {
@@ -78,7 +78,7 @@ public class myLogin {
             sc = SSLContext.getInstance("SSL");
             sc.init(null, trustAllCerts, new SecureRandom());
             HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-            HostnameVerifier allHostsValid = new HostnameVerifier(){
+            HostnameVerifier allHostsValid = new HostnameVerifier() {
 
                 @Override
                 public boolean verify(String hostname, SSLSession session) {
@@ -86,7 +86,7 @@ public class myLogin {
                 }
             };
             HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
-            this.socket = (SSLSocket)sc.getSocketFactory().createSocket();
+            this.socket = (SSLSocket) sc.getSocketFactory().createSocket();
             this.socket.connect(new InetSocketAddress(Inet4Address.getByName(this.host), 443), 30000);
             this.write = new OutputStreamWriter(this.socket.getOutputStream());
             String post = "GET /aportal/ HTTP/1.1\r\nHost: " + this.host + "\r\n" + "User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0\r\n" + "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n" + "Accept-Language: en-US,en;q=0.5\r\n" + "Accept-Encoding: gzip, deflate\r\n" + "Referer: http://portal.aut.ac.ir/\r\n" + "Cookie: JSESSIONID=00000000000000000000000000000000\r\n" + "Connection: close\r\n\r\n";
@@ -109,8 +109,7 @@ public class myLogin {
             }
             this.write.close();
             this.socket.close();
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             Logger.getLogger(myThread.class.getName()).log(Level.SEVERE, null, ex);
         }
         return this.sessionId;
@@ -119,7 +118,7 @@ public class myLogin {
     public boolean login() {
         SSLContext sc = null;
         try {
-            TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager(){
+            TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
 
                 @Override
                 public X509Certificate[] getAcceptedIssuers() {
@@ -137,7 +136,7 @@ public class myLogin {
             sc = SSLContext.getInstance("SSL");
             sc.init(null, trustAllCerts, new SecureRandom());
             HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-            HostnameVerifier allHostsValid = new HostnameVerifier(){
+            HostnameVerifier allHostsValid = new HostnameVerifier() {
 
                 @Override
                 public boolean verify(String hostname, SSLSession session) {
@@ -145,7 +144,7 @@ public class myLogin {
                 }
             };
             HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
-            this.socket = (SSLSocket)sc.getSocketFactory().createSocket();
+            this.socket = (SSLSocket) sc.getSocketFactory().createSocket();
             this.socket.connect(new InetSocketAddress(Inet4Address.getByName(this.host), 443), 30000);
             this.write = new OutputStreamWriter(this.socket.getOutputStream());
             String qq = "username=" + this.username + "&password=" + this.password + "&passline=" + this.captcha + "&login=%D9%88%D8%B1%D9%88%D8%AF+%D8%A8%D9%87+%D9%BE%D9%88%D8%B1%D8%AA%D8%A7%D9%84";
@@ -166,8 +165,7 @@ public class myLogin {
             if (str.contains("<img src=\"PassImageServlet")) {
                 return false;
             }
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             Logger.getLogger(myThread.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
