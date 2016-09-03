@@ -1,10 +1,7 @@
 /*
  * Decompiled with CFR 0_115.
  */
-package entekhabvahed;
 
-import entekhabvahed.EntekhabVahed;
-import entekhabvahed.myThread;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -131,7 +128,6 @@ extends Thread {
                 Logger.getLogger(myThread.class.getName()).log(Level.SEVERE, null, ex);
                 continue;
             }
-            break;
         } while (true);
     }
 

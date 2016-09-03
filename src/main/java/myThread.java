@@ -1,9 +1,7 @@
 /*
  * Decompiled with CFR 0_115.
  */
-package entekhabvahed;
 
-import entekhabvahed.EntekhabVahed;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -30,7 +28,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 public class myThread
-extends Thread {
+        extends Thread {
     SSLSocket socket;
     Writer write;
     private boolean read;
@@ -55,7 +53,7 @@ extends Thread {
     public void run() {
         SSLContext sc = null;
         try {
-            TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager(){
+            TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
 
                 @Override
                 public X509Certificate[] getAcceptedIssuers() {
@@ -73,7 +71,7 @@ extends Thread {
             sc = SSLContext.getInstance("SSL");
             sc.init(null, trustAllCerts, new SecureRandom());
             HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-            HostnameVerifier allHostsValid = new HostnameVerifier(){
+            HostnameVerifier allHostsValid = new HostnameVerifier() {
 
                 @Override
                 public boolean verify(String hostname, SSLSession session) {
@@ -81,13 +79,12 @@ extends Thread {
                 }
             };
             HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
-        }
-        catch (Exception trustAllCerts) {
+        } catch (Exception trustAllCerts) {
             // empty catch block
         }
         do {
             try {
-                this.socket = (SSLSocket)sc.getSocketFactory().createSocket();
+                this.socket = (SSLSocket) sc.getSocketFactory().createSocket();
                 this.socket.connect(new InetSocketAddress(Inet4Address.getByName(this.host), 443), 30000);
                 this.write = new OutputStreamWriter(this.socket.getOutputStream());
                 String qq = "st_reg_course=" + this.lesson_code + "_" + this.group_code + "_" + this.course_id + "_" + this.group_no + "&st_course_add=%D8%AF%D8%B1%D8%B3+%D8%B1%D8%A7+%D8%A7%D8%B6%D8%A7%D9%81%D9%87+%DA%A9%D9%86";
@@ -95,7 +92,7 @@ extends Thread {
                 this.write.write(post);
                 this.write.flush();
                 if (this.read) {
-                    new Thread(){
+                    new Thread() {
 
                         @Override
                         public void run() {
@@ -105,8 +102,7 @@ extends Thread {
                                 }
                                 myThread.this.write.close();
                                 myThread.this.socket.close();
-                            }
-                            catch (IOException ex) {
+                            } catch (IOException ex) {
                                 Logger.getLogger(EntekhabVahed.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
@@ -115,19 +111,16 @@ extends Thread {
                     this.write.close();
                     this.socket.close();
                 }
-            }
-            catch (Exception qq) {
+            } catch (Exception qq) {
                 // empty catch block
             }
             try {
                 Thread.sleep(75);
                 continue;
-            }
-            catch (InterruptedException ex) {
+            } catch (InterruptedException ex) {
                 Logger.getLogger(myThread.class.getName()).log(Level.SEVERE, null, ex);
                 continue;
             }
-            break;
         } while (true);
     }
 

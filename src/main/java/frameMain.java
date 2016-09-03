@@ -1,11 +1,7 @@
 /*
  * Decompiled with CFR 0_115.
  */
-package entekhabvahed;
 
-import entekhabvahed.ThreadRunner;
-import entekhabvahed.myLogin;
-import entekhabvahed.myThread;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -31,7 +27,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class frameMain
-extends JFrame {
+        extends JFrame {
     JTextField txtUsername = new JTextField("9231058");
     JTextField txtPassword = new JTextField("");
     JTextField txtIP1 = new JTextField("192.168.1.50");
@@ -79,8 +75,7 @@ extends JFrame {
                 System.out.println(lcode + "_" + lgroup + "_" + tcode + "_" + tgroup);
                 this.tr.add(lcode, lgroup, tcode, tgroup);
             }
-        }
-        catch (FileNotFoundException ex) {
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.tr.start(true);
@@ -125,7 +120,7 @@ extends JFrame {
         this.add(this.lblStatus4);
         this.setDefaultCloseOperation(3);
         this.setVisible(true);
-        this.txtPassword.addKeyListener(new KeyListener(){
+        this.txtPassword.addKeyListener(new KeyListener() {
 
             @Override
             public void keyTyped(KeyEvent e) {
@@ -142,13 +137,13 @@ extends JFrame {
             public void keyReleased(KeyEvent e) {
             }
         });
-        KeyListener key = new KeyListener(){
+        KeyListener key = new KeyListener() {
 
             @Override
             public void keyTyped(KeyEvent e) {
                 if (e.getKeyChar() == '\n') {
                     if (e.getSource() == frameMain.this.txtCaptcha1) {
-                        new Thread(){
+                        new Thread() {
 
                             @Override
                             public void run() {
@@ -167,11 +162,9 @@ extends JFrame {
                                     String capt = frameMain.this.login1.getCaptchaURL();
                                     try {
                                         frameMain.this.img1.setImage(ImageIO.read(new URL(capt)));
-                                    }
-                                    catch (MalformedURLException ex) {
+                                    } catch (MalformedURLException ex) {
                                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
-                                    catch (IOException ex) {
+                                    } catch (IOException ex) {
                                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
                                     }
                                     frameMain.this.lblStatus1.setText("ready!");
@@ -179,7 +172,7 @@ extends JFrame {
                             }
                         }.start();
                     } else if (e.getSource() == frameMain.this.txtCaptcha2) {
-                        new Thread(){
+                        new Thread() {
 
                             @Override
                             public void run() {
@@ -198,11 +191,9 @@ extends JFrame {
                                     String capt = frameMain.this.login2.getCaptchaURL();
                                     try {
                                         frameMain.this.img2.setImage(ImageIO.read(new URL(capt)));
-                                    }
-                                    catch (MalformedURLException ex) {
+                                    } catch (MalformedURLException ex) {
                                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
-                                    catch (IOException ex) {
+                                    } catch (IOException ex) {
                                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
                                     }
                                     frameMain.this.lblStatus2.setText("ready!");
@@ -210,7 +201,7 @@ extends JFrame {
                             }
                         }.start();
                     } else if (e.getSource() == frameMain.this.txtCaptcha3) {
-                        new Thread(){
+                        new Thread() {
 
                             @Override
                             public void run() {
@@ -229,11 +220,9 @@ extends JFrame {
                                     String capt = frameMain.this.login3.getCaptchaURL();
                                     try {
                                         frameMain.this.img3.setImage(ImageIO.read(new URL(capt)));
-                                    }
-                                    catch (MalformedURLException ex) {
+                                    } catch (MalformedURLException ex) {
                                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
-                                    catch (IOException ex) {
+                                    } catch (IOException ex) {
                                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
                                     }
                                     frameMain.this.lblStatus3.setText("ready!");
@@ -241,7 +230,7 @@ extends JFrame {
                             }
                         }.start();
                     } else if (e.getSource() == frameMain.this.txtCaptcha4) {
-                        new Thread(){
+                        new Thread() {
 
                             @Override
                             public void run() {
@@ -260,11 +249,9 @@ extends JFrame {
                                     String capt = frameMain.this.login4.getCaptchaURL();
                                     try {
                                         frameMain.this.img4.setImage(ImageIO.read(new URL(capt)));
-                                    }
-                                    catch (MalformedURLException ex) {
+                                    } catch (MalformedURLException ex) {
                                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
-                                    catch (IOException ex) {
+                                    } catch (IOException ex) {
                                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
                                     }
                                     frameMain.this.lblStatus4.setText("ready!");
@@ -310,7 +297,7 @@ extends JFrame {
         this.txtUsername.setFocusable(false);
         this.txtPassword.setFocusable(false);
         if (this.txtIP1.getText().trim().length() > 0) {
-            new Thread(){
+            new Thread() {
 
                 @Override
                 public void run() {
@@ -322,11 +309,9 @@ extends JFrame {
                     String capt = frameMain.this.login1.getCaptchaURL();
                     try {
                         frameMain.this.img1.setImage(ImageIO.read(new URL(capt)));
-                    }
-                    catch (MalformedURLException ex) {
+                    } catch (MalformedURLException ex) {
                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    catch (IOException ex) {
+                    } catch (IOException ex) {
                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     frameMain.this.lblStatus1.setText("ready!");
@@ -334,7 +319,7 @@ extends JFrame {
             }.start();
         }
         if (this.txtIP2.getText().trim().length() > 0) {
-            new Thread(){
+            new Thread() {
 
                 @Override
                 public void run() {
@@ -346,11 +331,9 @@ extends JFrame {
                     String capt = frameMain.this.login2.getCaptchaURL();
                     try {
                         frameMain.this.img2.setImage(ImageIO.read(new URL(capt)));
-                    }
-                    catch (MalformedURLException ex) {
+                    } catch (MalformedURLException ex) {
                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    catch (IOException ex) {
+                    } catch (IOException ex) {
                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     frameMain.this.lblStatus2.setText("ready!");
@@ -358,7 +341,7 @@ extends JFrame {
             }.start();
         }
         if (this.txtIP3.getText().trim().length() > 0) {
-            new Thread(){
+            new Thread() {
 
                 @Override
                 public void run() {
@@ -370,11 +353,9 @@ extends JFrame {
                     String capt = frameMain.this.login3.getCaptchaURL();
                     try {
                         frameMain.this.img3.setImage(ImageIO.read(new URL(capt)));
-                    }
-                    catch (MalformedURLException ex) {
+                    } catch (MalformedURLException ex) {
                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    catch (IOException ex) {
+                    } catch (IOException ex) {
                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     frameMain.this.lblStatus3.setText("ready!");
@@ -382,7 +363,7 @@ extends JFrame {
             }.start();
         }
         if (this.txtIP4.getText().trim().length() > 0) {
-            new Thread(){
+            new Thread() {
 
                 @Override
                 public void run() {
@@ -394,11 +375,9 @@ extends JFrame {
                     String capt = frameMain.this.login4.getCaptchaURL();
                     try {
                         frameMain.this.img4.setImage(ImageIO.read(new URL(capt)));
-                    }
-                    catch (MalformedURLException ex) {
+                    } catch (MalformedURLException ex) {
                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    catch (IOException ex) {
+                    } catch (IOException ex) {
                         Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     frameMain.this.lblStatus4.setText("ready!");
@@ -408,13 +387,12 @@ extends JFrame {
     }
 
     public class myPanel
-    extends JPanel {
+            extends JPanel {
         BufferedImage i;
 
         public myPanel() {
             this.i = null;
-            new Thread(frameMain.this){
-                final /* synthetic */ frameMain val$this$0;
+            new Thread() {
 
                 @Override
                 public void run() {
@@ -423,12 +401,10 @@ extends JFrame {
                         try {
                             Thread.sleep(100);
                             continue;
-                        }
-                        catch (InterruptedException ex) {
+                        } catch (InterruptedException ex) {
                             Logger.getLogger(frameMain.class.getName()).log(Level.SEVERE, null, ex);
                             continue;
                         }
-                        break;
                     } while (true);
                 }
             }.start();
@@ -441,7 +417,7 @@ extends JFrame {
         @Override
         public void paint(Graphics gg) {
             super.paint(gg);
-            Graphics2D g = (Graphics2D)gg;
+            Graphics2D g = (Graphics2D) gg;
             if (this.i != null) {
                 g.drawImage(this.i, null, 0, 0);
             } else {

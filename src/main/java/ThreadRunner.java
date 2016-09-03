@@ -1,9 +1,7 @@
 /*
  * Decompiled with CFR 0_115.
  */
-package entekhabvahed;
 
-import entekhabvahed.myThread;
 import java.util.ArrayList;
 
 public class ThreadRunner {
