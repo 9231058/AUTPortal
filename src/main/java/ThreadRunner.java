@@ -5,12 +5,12 @@
 import java.util.ArrayList;
 
 public class ThreadRunner {
-    public ArrayList<String> lessons = new ArrayList();
-    public ArrayList<String> group = new ArrayList();
-    public ArrayList<String> courseid = new ArrayList();
-    public ArrayList<String> groupno = new ArrayList();
-    public ArrayList<String> ips = new ArrayList();
-    public ArrayList<String> sessions = new ArrayList();
+    public ArrayList<String> lessons = new ArrayList<>();
+    public ArrayList<String> group = new ArrayList<>();
+    public ArrayList<String> courseid = new ArrayList<>();
+    public ArrayList<String> groupno = new ArrayList<>();
+    public ArrayList<String> ips = new ArrayList<>();
+    public ArrayList<String> sessions = new ArrayList<>();
 
     public void add(String lesson_code, String group_code, String course_id, String group_no) {
         this.lessons.add(lesson_code);
