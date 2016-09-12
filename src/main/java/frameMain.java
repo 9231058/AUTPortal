@@ -28,7 +28,7 @@ import javax.swing.JTextField;
 
 public class frameMain
         extends JFrame {
-    JTextField txtUsername = new JTextField("9331032");
+    JTextField txtUsername = new JTextField("9431022");
     JTextField txtPassword = new JTextField("");
     JTextField txtIP1 = new JTextField("192.168.1.50");
     JTextField txtIP2 = new JTextField("192.168.1.51");
