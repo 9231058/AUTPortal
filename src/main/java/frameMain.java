@@ -1,56 +1,44 @@
-/*
- * Decompiled with CFR 0_115.
- */
-
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.LayoutManager;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class frameMain
         extends JFrame {
-    JTextField txtUsername = new JTextField("");
-    JTextField txtPassword = new JTextField("");
-    JTextField txtIP1 = new JTextField("192.168.1.50");
-    JTextField txtIP2 = new JTextField("192.168.1.51");
-    JTextField txtIP3 = new JTextField("portal2.aut.ac.ir");
-    JTextField txtIP4 = new JTextField("portal.aut.ac.ir");
-    JTextField txtCaptcha1 = new JTextField();
-    JTextField txtCaptcha2 = new JTextField();
-    JTextField txtCaptcha3 = new JTextField();
-    JTextField txtCaptcha4 = new JTextField();
-    JLabel lblStatus1 = new JLabel("waiting for IP");
-    JLabel lblStatus2 = new JLabel("waiting for IP");
-    JLabel lblStatus3 = new JLabel("waiting for IP");
-    JLabel lblStatus4 = new JLabel("waiting for IP");
-    myPanel img1;
-    myPanel img2;
-    myPanel img3;
-    myPanel img4;
-    ThreadRunner tr;
-    myLogin login1;
-    myLogin login2;
-    myLogin login3;
-    myLogin login4;
+    private JTextField txtUsername = new JTextField("");
+    private JTextField txtPassword = new JTextField("");
+    private JTextField txtIP1 = new JTextField("192.168.1.50");
+    private JTextField txtIP2 = new JTextField("192.168.1.51");
+    private JTextField txtIP3 = new JTextField("portal2.aut.ac.ir");
+    private JTextField txtIP4 = new JTextField("portal.aut.ac.ir");
+    private JTextField txtCaptcha1 = new JTextField();
+    private JTextField txtCaptcha2 = new JTextField();
+    private JTextField txtCaptcha3 = new JTextField();
+    private JTextField txtCaptcha4 = new JTextField();
+    private JLabel lblStatus1 = new JLabel("waiting for IP");
+    private JLabel lblStatus2 = new JLabel("waiting for IP");
+    private JLabel lblStatus3 = new JLabel("waiting for IP");
+    private JLabel lblStatus4 = new JLabel("waiting for IP");
+    private myPanel img1;
+    private myPanel img2;
+    private myPanel img3;
+    private myPanel img4;
+    private ThreadRunner tr;
+    private myLogin login1;
+    private myLogin login2;
+    private myLogin login3;
+    private myLogin login4;
 
     public frameMain() {
         this.img1 = new myPanel();
