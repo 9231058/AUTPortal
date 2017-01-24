@@ -28,7 +28,7 @@ import javax.swing.JTextField;
 
 public class frameMain
         extends JFrame {
-    JTextField txtUsername = new JTextField("9331032");
+    JTextField txtUsername = new JTextField("");
     JTextField txtPassword = new JTextField("");
     JTextField txtIP1 = new JTextField("192.168.1.50");
     JTextField txtIP2 = new JTextField("192.168.1.51");
@@ -82,7 +82,6 @@ public class frameMain
         this.setLayout(null);
         this.setSize(700, 300);
         this.txtUsername.setBounds(10, 10, 200, 20);
-        this.txtUsername.setEditable(false);
         this.txtPassword.setBounds(10, 30, 200, 20);
         this.txtIP1.setBounds(10, 70, 200, 20);
         this.txtIP2.setBounds(10, 110, 200, 20);
